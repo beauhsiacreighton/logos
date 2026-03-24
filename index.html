@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Logos Medical Research Institute</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy: #0d1b2a;
+      --navy-mid: #162032;
+      --ink: #1a1a2e;
+      --gold: #b8966a;
+      --gold-light: #d4b896;
+      --gold-pale: #f0e8da;
+      --cream: #faf8f4;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --gray-light: #e8e4de;
+      --ff-display: 'Cormorant Garamond', Georgia, serif;
+      --ff-body: 'DM Sans', sans-serif;
+      --transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--ff-body);
+      background: var(--cream);
+      color: var(--navy);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ─── UTILITY ─── */
+    .container {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 0 40px;
+    }
+
+    .rule {
+      width: 48px;
+      height: 2px;
+      background: var(--gold);
+      display: block;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 20px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(250, 248, 244, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(184, 150, 106, 0.15);
+      transition: var(--transition);
+    }
+
+    .nav-logo {
+      font-family: var(--ff-display);
+      font-size: 1.2rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      color: var(--navy);
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      font-family: var(--ff-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--navy);
+      padding: 10px 24px;
+      text-decoration: none;
+      border: 1px solid var(--navy);
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+      padding-top: 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0; right: 0;
+      width: 55%;
+      height: 100%;
+      background: var(--navy);
+      z-index: 0;
+    }
+
+    .hero-left {
+      position: relative;
+      z-index: 1;
+      padding: 80px 60px 80px 40px;
+    }
+
+    .hero-eyebrow {
+      font-family: var(--ff-body);
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      display: block;
+    }
+
+    .hero h1 {
+      font-family: var(--ff-display);
+      font-size: clamp(3.2rem, 5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero-tagline {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 400;
+      color: var(--gray);
+      margin-bottom: 36px;
+      font-style: italic;
+    }
+
+    .hero-body {
+      font-size: 1rem;
+      color: var(--navy);
+      line-height: 1.8;
+      max-width: 460px;
+      margin-bottom: 44px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      display: inline-block;
+      background: var(--navy);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 16px 36px;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid var(--navy);
+    }
+
+    .btn-primary:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .btn-secondary {
+      font-family: var(--ff-body);
+      font-size: 0.78rem;
+      font-weight: 400;
+      letter-spacing: 0.06em;
+      color: var(--gray);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      transition: color var(--transition);
+    }
+
+    .btn-secondary:hover { color: var(--gold); }
+
+    .hero-right {
+      position: relative;
+      z-index: 1;
+      padding: 80px 40px 80px 60px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero-stat-block {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+    }
+
+    .stat-card {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(184, 150, 106, 0.2);
+      padding: 36px 28px;
+      color: var(--white);
+    }
+
+    .stat-card:first-child {
+      grid-column: 1 / -1;
+      background: rgba(184, 150, 106, 0.12);
+      border-color: rgba(184, 150, 106, 0.4);
+    }
+
+    .stat-number {
+      font-family: var(--ff-display);
+      font-size: 3.8rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ─── SECTION COMMON ─── */
+    section {
+      padding: 120px 0;
+    }
+
+    .section-header {
+      margin-bottom: 70px;
+    }
+
+    .section-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .section-eyebrow::before {
+      content: '';
+      width: 32px;
+      height: 1px;
+      background: var(--gold);
+      display: block;
+    }
+
+    .section-title {
+      font-family: var(--ff-display);
+      font-size: clamp(2.2rem, 3.5vw, 3.2rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--navy);
+    }
+
+    .section-title em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    /* ─── FOUNDER SECTION ─── */
+    .founder {
+      background: var(--white);
+    }
+
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.6fr;
+      gap: 80px;
+      align-items: start;
+    }
+
+    .founder-accent {
+      position: relative;
+    }
+
+    .founder-box {
+      background: var(--navy);
+      padding: 52px 40px;
+      color: var(--white);
+      position: relative;
+    }
+
+    .founder-box::after {
+      content: '';
+      position: absolute;
+      bottom: -12px; right: -12px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid var(--gold);
+      z-index: -1;
+    }
+
+    .founder-name {
+      font-family: var(--ff-display);
+      font-size: 1.9rem;
+      font-weight: 400;
+      margin-bottom: 6px;
+    }
+
+    .founder-title {
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .founder-credentials {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .credential {
+      font-size: 0.9rem;
+      color: rgba(255,255,255,0.7);
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .credential::before {
+      content: '→';
+      color: var(--gold);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .founder-text p {
+      font-size: 1.05rem;
+      line-height: 1.85;
+      color: #3a3a4a;
+      margin-bottom: 20px;
+    }
+
+    .founder-highlight {
+      border-left: 2px solid var(--gold);
+      padding-left: 24px;
+      margin: 36px 0;
+    }
+
+    .founder-highlight p {
+      font-family: var(--ff-display);
+      font-size: 1.4rem !important;
+      font-style: italic;
+      color: var(--navy) !important;
+      line-height: 1.5 !important;
+    }
+
+    /* ─── PROCESS SECTION ─── */
+    .process {
+      background: var(--cream);
+    }
+
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .process-card {
+      background: var(--white);
+      padding: 44px 36px;
+      position: relative;
+      overflow: hidden;
+      transition: var(--transition);
+    }
+
+    .process-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 100%;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform var(--transition);
+    }
+
+    .process-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .process-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(13, 27, 42, 0.08);
+    }
+
+    .process-number {
+      font-family: var(--ff-display);
+      font-size: 4rem;
+      font-weight: 300;
+      color: var(--gold-pale);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .process-name {
+      font-family: var(--ff-display);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+
+    .process-desc {
+      font-size: 0.93rem;
+      line-height: 1.75;
+      color: var(--gray);
+    }
+
+    /* ─── FOR WHO SECTION ─── */
+    .forwhom {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .forwhom .section-title {
+      color: var(--white);
+    }
+
+    .forwhom .section-eyebrow {
+      color: var(--gold);
+    }
+
+    .forwhom-body {
+      font-family: var(--ff-display);
+      font-size: clamp(1.5rem, 2.5vw, 2rem);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.6;
+      color: rgba(255,255,255,0.85);
+      max-width: 760px;
+      margin-bottom: 60px;
+    }
+
+    .audience-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+
+    .audience-card {
+      border: 1px solid rgba(184, 150, 106, 0.2);
+      padding: 36px 32px;
+      transition: var(--transition);
+    }
+
+    .audience-card:hover {
+      background: rgba(184, 150, 106, 0.06);
+      border-color: rgba(184, 150, 106, 0.5);
+    }
+
+    .audience-label {
+      font-family: var(--ff-display);
+      font-size: 1.3rem;
+      font-weight: 500;
+      color: var(--gold-light);
+      margin-bottom: 12px;
+    }
+
+    .audience-desc {
+      font-size: 0.9rem;
+      line-height: 1.7;
+      color: rgba(255,255,255,0.55);
+    }
+
+    /* ─── PRICING ─── */
+    .pricing {
+      background: var(--white);
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-bottom: 60px;
+    }
+
+    .price-card {
+      padding: 52px 40px;
+      background: var(--cream);
+      position: relative;
+      transition: var(--transition);
+    }
+
+    .price-card.featured {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .price-card.featured .price-label {
+      color: rgba(255,255,255,0.55);
+    }
+
+    .price-card.featured .price-amount {
+      color: var(--gold-light);
+    }
+
+    .price-card.featured .price-note {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .price-badge {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-size: 0.68rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      margin-bottom: 28px;
+    }
+
+    .price-label {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gray);
+      margin-bottom: 16px;
+    }
+
+    .price-amount {
+      font-family: var(--ff-display);
+      font-size: 3.2rem;
+      font-weight: 300;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .price-currency {
+      font-size: 1.4rem;
+      vertical-align: super;
+    }
+
+    .price-note {
+      font-size: 0.85rem;
+      color: var(--gray);
+      margin-bottom: 32px;
+    }
+
+    .price-cta {
+      display: block;
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 14px 24px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+
+    .price-card:not(.featured) .price-cta {
+      background: var(--navy);
+      color: var(--white);
+      border: 1px solid var(--navy);
+    }
+
+    .price-card:not(.featured) .price-cta:hover {
+      background: var(--gold);
+      border-color: var(--gold);
+    }
+
+    .price-card.featured .price-cta {
+      background: var(--gold);
+      color: var(--white);
+    }
+
+    .price-card.featured .price-cta:hover {
+      background: var(--gold-light);
+    }
+
+    .scarcity-note {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--gray);
+      font-style: italic;
+    }
+
+    /* ─── DISCLOSURE ─── */
+    .disclosure {
+      background: #f4f1ec;
+      border-top: 1px solid var(--gray-light);
+    }
+
+    .disclosure-inner {
+      max-width: 760px;
+    }
+
+    .disclosure-title {
+      font-family: var(--ff-display);
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .disclosure-subtitle {
+      font-size: 0.78rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 28px;
+    }
+
+    .disclosure-body p {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #555;
+      margin-bottom: 14px;
+    }
+
+    .disclosure-tagline {
+      margin-top: 32px;
+      font-family: var(--ff-display);
+      font-size: 1.15rem;
+      font-style: italic;
+      color: var(--navy);
+      border-left: 2px solid var(--gold);
+      padding-left: 20px;
+    }
+
+    /* ─── APPLY CTA ─── */
+    .apply {
+      background: var(--navy);
+      text-align: center;
+      padding: 140px 0;
+    }
+
+    .apply-eyebrow {
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 24px;
+    }
+
+    .apply h2 {
+      font-family: var(--ff-display);
+      font-size: clamp(2.5rem, 4vw, 4rem);
+      font-weight: 300;
+      color: var(--white);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .apply h2 em {
+      font-style: italic;
+      color: var(--gold-light);
+    }
+
+    .apply-sub {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 52px;
+      max-width: 500px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .apply-actions {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-size: 0.8rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 18px 44px;
+      text-decoration: none;
+      transition: var(--transition);
+      border: 1px solid var(--gold);
+    }
+
+    .btn-gold:hover {
+      background: var(--gold-light);
+      border-color: var(--gold-light);
+    }
+
+    .apply-email {
+      font-size: 0.88rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .apply-email a {
+      color: var(--gold-light);
+      text-decoration: none;
+      transition: color var(--transition);
+    }
+
+    .apply-email a:hover {
+      color: var(--white);
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #080f18;
+      padding: 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .footer-logo {
+      font-family: var(--ff-display);
+      font-size: 1rem;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-logo span { color: var(--gold); }
+
+    .footer-sub {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.06em;
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+      }
+      .hero::before { display: none; }
+      .hero-left {
+        padding: 100px 24px 40px;
+        background: var(--cream);
+      }
+      .hero-right {
+        padding: 40px 24px 60px;
+        background: var(--navy);
+      }
+      .hero-body { max-width: 100%; }
+      .founder-grid { grid-template-columns: 1fr; gap: 48px; }
+      .process-grid { grid-template-columns: 1fr; }
+      .audience-row { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      nav { padding: 16px 24px; }
+      .container { padding: 0 24px; }
+      section { padding: 80px 0; }
+      .hero-stat-block { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .hero h1 { font-size: 2.8rem; }
+      .hero-stat-block { grid-template-columns: 1fr; }
+      .stat-card:first-child { grid-column: auto; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#" class="nav-logo">Logos <span>·</span> Medical Research</a>
+    <a href="#apply" class="nav-cta">Apply Now</a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-eyebrow">Global Research Training</div>
+      <h1>Your Research.<br><em>Published.</em><br>Done Right.</h1>
+      <p class="hero-tagline">For international medical students who are serious.</p>
+      <p class="hero-body">Most medical students know they need research. Few know how to produce work that actually meets the standards of a peer-reviewed, PubMed-indexed journal — and even fewer have someone in their corner who has done it at scale. At Logos Medical Research Institute, we change that.</p>
+      <div class="hero-actions">
+        <a href="#apply" class="btn-primary">Apply for Current Cohort →</a>
+        <a href="#program" class="btn-secondary">See the program ↓</a>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="hero-stat-block">
+        <div class="stat-card">
+          <div class="stat-number">500+</div>
+          <div class="stat-label">Authorships guided to date</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">400+</div>
+          <div class="stat-label">Students mentored</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">6</div>
+          <div class="stat-label">Stages from idea to submission</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOUNDER -->
+  <section class="founder">
+    <div class="container">
+      <div class="founder-grid">
+        <div class="founder-accent reveal">
+          <div class="founder-box">
+            <div class="founder-name">Founded by a Medical Student,<br>for Medical Students</div>
+            <div class="founder-title">Founder & Lead Mentor</div>
+            <div class="founder-credentials">
+              <div class="credential">Fourth-year MD Student, Creighton University — Phoenix</div>
+              <div class="credential">Incoming ENT Resident, Loma Linda University Medical Center</div>
+              <div class="credential">400+ students mentored to publication</div>
+              <div class="credential">500+ authorships across peer-reviewed journals</div>
+            </div>
+          </div>
+        </div>
+        <div class="founder-text reveal">
+          <div class="section-header">
+            <div class="section-eyebrow">Our Story</div>
+            <h2 class="section-title">Led by Someone Who Has <em>Been Where You Are</em></h2>
+          </div>
+          <p>Logos was built from a simple observation: the gap between wanting to publish and knowing how to publish is where most medical careers stall.</p>
+          <div class="founder-highlight">
+            <p>"I built the exact step-by-step process I wish I had — one that produces real, submittable, publication-ready research without the guesswork."</p>
+          </div>
+          <p>Having personally guided over 400 pre-medical and medical students to earn more than 500 authorships, this program exists to give you exactly that process — structured, rigorous, and proven at scale.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="program">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">The Program</div>
+        <h2 class="section-title">Every Stage. <em>Guided.</em></h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card reveal">
+          <div class="process-number">01</div>
+          <div class="process-name">Topic Selection</div>
+          <div class="process-desc">We identify a focused, publishable research question tailored to your background and target journals.</div>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-number">02</div>
+          <div class="process-name">Literature Search & Screening</div>
+          <div class="process-desc">You will conduct a rigorous, reproducible literature search using PubMed, Google Scholar, and other indexed databases.</div>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-number">03</div>
+          <div class="process-name">Data Extraction & Methodology</div>
+          <div class="process-desc">We walk through the methodology step by step — no prior research experience required.</div>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-number">04</div>
+          <div class="process-name">Statistical Interpretation</div>
+          <div class="process-desc">You will be provided with statistical results and taught how to interpret them into precise scientific language.</div>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-number">05</div>
+          <div class="process-name">Manuscript Drafting</div>
+          <div class="process-desc">Structured writing support through every section — Introduction, Methods, Results, and Discussion — to exact journal standards.</div>
+        </div>
+        <div class="process-card reveal">
+          <div class="process-number">06</div>
+          <div class="process-name">Review & Submission Prep</div>
+          <div class="process-desc">Your manuscript is refined until it meets requirements for submission to a peer-reviewed, PubMed-indexed journal.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOR WHOM -->
+  <section class="forwhom">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Who This Is For</div>
+        <h2 class="section-title" style="color:var(--white);">Built for Those Who Are <em>Ready to Do the Work</em></h2>
+      </div>
+      <p class="forwhom-body reveal">"Logos is designed for anyone who is serious about producing research worth publishing — motivated, willing to do the work, and ready to be guided through a rigorous process."</p>
+      <div class="audience-row">
+        <div class="audience-card reveal">
+          <div class="audience-label">Medical Students</div>
+          <div class="audience-desc">Building your research portfolio and academic credibility during medical school — before you need it most.</div>
+        </div>
+        <div class="audience-card reveal">
+          <div class="audience-label">IMGs</div>
+          <div class="audience-desc">Strengthening your residency application with meaningful, verifiable research authorship in indexed journals.</div>
+        </div>
+        <div class="audience-card reveal">
+          <div class="audience-label">Early-Career Physicians</div>
+          <div class="audience-desc">Building your academic profile and contributing to the literature in your specialty with structured mentorship.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="pricing">
+    <div class="container">
+      <div class="section-header reveal">
+        <div class="section-eyebrow">Enrollment & Pricing</div>
+        <h2 class="section-title">Invest in a Credential <em>That Lasts</em></h2>
+      </div>
+      <div class="pricing-grid">
+        <div class="price-card reveal">
+          <div class="price-label">Small Group</div>
+          <div class="price-amount"><span class="price-currency">$</span>525</div>
+          <div class="price-note">per person · 3–5 students</div>
+          <a href="mailto:beauhsiacreighton@gmail.com" class="price-cta">Apply Now</a>
+        </div>
+        <div class="price-card featured reveal">
+          <div class="price-badge">Most Popular</div>
+          <div class="price-label">Individual</div>
+          <div class="price-amount"><span class="price-currency">$</span>650</div>
+          <div class="price-note">per person · 1-on-1 mentorship</div>
+          <a href="mailto:beauhsiacreighton@gmail.com" class="price-cta">Apply Now</a>
+        </div>
+        <div class="price-card reveal">
+          <div class="price-badge" style="background:var(--navy);">Limited Time</div>
+          <div class="price-label">Early Bird</div>
+          <div class="price-amount"><span class="price-currency">$</span>450</div>
+          <div class="price-note">per person · limited seats</div>
+          <a href="mailto:beauhsiacreighton@gmail.com" class="price-cta">Apply Now</a>
+        </div>
+      </div>
+      <p class="scarcity-note reveal">Spots are limited per cohort to ensure the quality of mentorship is never diluted.</p>
+    </div>
+  </section>
+
+  <!-- DISCLOSURE -->
+  <section class="disclosure">
+    <div class="container">
+      <div class="disclosure-inner reveal">
+        <div class="disclosure-title">Important Disclosure</div>
+        <div class="disclosure-subtitle">Please Read Before Enrolling</div>
+        <div class="disclosure-body">
+          <p>Logos Medical Research Institute is a mentorship and research training program — not a publication service. Your enrollment covers structured, step-by-step guidance through the full research process, culminating in a manuscript prepared to meet peer-reviewed journal submission standards.</p>
+          <p>Publication is not guaranteed. All acceptance decisions are made exclusively by independent journal editors and peer reviewers. We have no influence over, and make no promises regarding, any journal's decision.</p>
+          <p>We do not pay journals for acceptance. We do not submit on your behalf. We do not guarantee authorship at any specific journal or impact factor.</p>
+          <p>What we commit to is this: you will be genuinely mentored, your work will be held to a high standard, and your manuscript will be submission-ready when the program concludes. The research experience and the skills you build are yours permanently — regardless of any journal's decision.</p>
+        </div>
+        <div class="disclosure-tagline">This is mentorship. Not a publication package.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- APPLY CTA -->
+  <section class="apply" id="apply">
+    <div class="container">
+      <div class="apply-eyebrow reveal">Cohort Enrollment Now Open</div>
+      <h2 class="reveal">Your Manuscript.<br><em>Your Authorship.</em><br>Your Career.</h2>
+      <p class="apply-sub reveal">Cohort seats are filled on a first-come, first-served basis. Once a cohort is full, the next opening may be weeks away.</p>
+      <div class="apply-actions reveal">
+        <a href="mailto:beauhsiacreighton@gmail.com" class="btn-gold">Apply for the Current Cohort →</a>
+      </div>
+      <p class="apply-email reveal" style="margin-top: 28px;">Questions? <a href="mailto:beauhsiacreighton@gmail.com">beauhsiacreighton@gmail.com</a></p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">Logos <span>·</span> Medical Research Institute</div>
+    <div class="footer-sub">Global Research Training for International Medical Students</div>
+  </footer>
+
+  <script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry, i) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => entry.target.classList.add('visible'), i * 80);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+    reveals.forEach(el => observer.observe(el));
+
+    // Nav shrink on scroll
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+      nav.style.padding = window.scrollY > 60 ? '12px 40px' : '20px 40px';
+    });
+  </script>
+</body>
+</html>
