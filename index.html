@@ -180,6 +180,7 @@
       height: 1px;
       background: var(--gold);
       display: block;
+      flex-shrink: 0;
     }
 
     @keyframes fadeUp {
@@ -725,7 +726,6 @@
       border-color: var(--navy);
     }
 
-    /* Featured pubs */
     .featured-pubs {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -807,7 +807,6 @@
       transition: var(--transition);
     }
 
-    /* Pub list */
     .pub-list { display: flex; flex-direction: column; gap: 2px; }
 
     .pub-row {
@@ -1033,15 +1032,74 @@
 
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
+      /* Hero: single column, cream background throughout */
       .hero {
         grid-template-columns: 1fr;
         min-height: auto;
+        padding-top: 68px;
       }
+
+      /* Remove the split navy panel on desktop */
       .hero::before { display: none; }
-      .hero-left { padding: 100px 40px 40px; }
-      .hero-right { background: var(--navy); padding: 40px; }
-      .hero-stat-block { flex-direction: row; gap: 0; border: none; }
-      .stat-card { flex: 1; }
+
+      /* Left side: cream with comfortable padding */
+      .hero-left {
+        padding: 48px 24px 36px;
+        background: var(--cream);
+      }
+
+      /* Right side: navy block stacked below */
+      .hero-right {
+        background: var(--navy);
+        padding: 36px 24px;
+      }
+
+      /* Stats in a horizontal row that wraps nicely */
+      .hero-stat-block {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border: none;
+        gap: 0;
+      }
+
+      .stat-card {
+        flex: 1 1 calc(33.33% - 1px);
+        min-width: 100px;
+        padding: 24px 16px;
+        border-bottom: none;
+        border-right: 1px solid rgba(184,150,106,0.15);
+        text-align: center;
+      }
+
+      .stat-card:last-child { border-right: none; }
+
+      .stat-number { font-size: 2.4rem; }
+
+      /* Reduce heading size on mobile */
+      .hero h1 {
+        font-size: clamp(2.6rem, 10vw, 3.8rem);
+      }
+
+      .hero-eyebrow {
+        font-size: 0.65rem;
+        flex-wrap: wrap;
+      }
+
+      .hero-body {
+        font-size: 0.95rem;
+      }
+
+      /* Stack the CTA buttons vertically on small screens */
+      .hero-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+
+      .btn-primary {
+        width: 100%;
+        text-align: center;
+      }
 
       .proof-strip .container { grid-template-columns: repeat(2, 1fr); }
       .founder-grid { grid-template-columns: 1fr; }
@@ -1056,12 +1114,42 @@
 
       nav { padding: 16px 24px; }
       .container { padding: 0 24px; }
+      .urgency-bar { padding: 12px 24px; font-size: 0.72rem; }
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 480px) {
+      .hero-left { padding: 40px 20px 28px; }
+      .hero-right { padding: 28px 20px; }
+
+      /* On very small screens, stack stats 2-column */
+      .stat-card {
+        flex: 1 1 50%;
+      }
+      .stat-card:nth-child(2) { border-right: none; }
+      .stat-card:nth-child(3) {
+        border-right: none;
+        border-top: 1px solid rgba(184,150,106,0.15);
+        flex: 1 1 100%;
+      }
+
       .proof-strip .container { grid-template-columns: 1fr 1fr; }
       .process-grid { grid-template-columns: 1fr; }
       .pub-row { grid-template-columns: 1fr; gap: 8px; }
+
+      .pricing-table thead { display: none; }
+      .pricing-table tbody tr {
+        display: flex;
+        flex-wrap: wrap;
+        padding: 16px 0;
+        border-bottom: 1px solid var(--gray-light);
+      }
+      .pricing-table td {
+        padding: 4px 16px;
+      }
+      .price-per {
+        text-align: left;
+        font-size: 1.6rem;
+      }
     }
   </style>
 </head>
@@ -1234,6 +1322,7 @@
       </div>
     </div>
   </section>
+
   <!-- PRICING -->
   <section class="pricing" id="pricing">
     <div class="container">
@@ -1313,6 +1402,7 @@
       </p>
     </div>
   </section>
+
   <!-- PUBLICATIONS -->
   <section class="publications" id="publications">
     <div class="container">
@@ -1322,7 +1412,6 @@
       </div>
       <p class="reveal" style="max-width:600px;color:var(--gray);margin-bottom:44px;line-height:1.8;">A sample of peer-reviewed, PubMed-indexed work produced through the Logos program. These aren't hypothetical outcomes — they are real publications with real authorship.</p>
 
-      <!-- Featured publications -->
       <div class="featured-pubs">
         <div class="featured-pub-card reveal">
           <div class="fpub-badge">● Featured Publication</div>
@@ -1350,7 +1439,6 @@
         </div>
       </div>
 
-      <!-- Filter bar -->
       <div class="pub-filter-bar reveal">
         <button class="pub-filter active" data-filter="all">All</button>
         <button class="pub-filter" data-filter="2026">2026</button>
@@ -1359,11 +1447,7 @@
         <button class="pub-filter" data-filter="2023">2023</button>
       </div>
 
-      <!-- Publication list -->
-      <div class="pub-list" id="pubList">
-        <!-- Injected by JS -->
-      </div>
-
+      <div class="pub-list" id="pubList"></div>
       <button class="pub-more-btn" id="pubMoreBtn">Load More Publications</button>
     </div>
   </section>
@@ -1405,18 +1489,14 @@
   </footer>
 
   <script>
-    // ─── SCROLL REVEAL ───
     const reveals = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
+        if (entry.isIntersecting) entry.target.classList.add('visible');
       });
     }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
     reveals.forEach(el => observer.observe(el));
 
-    // ─── PUBLICATIONS DATA ───
     const publications = [
       { year: 2026, title: "Genomic Insights into Cutaneous Squamous Cell Carcinoma", authors: "GS Saglimbeni, TJ Morris, B Hsia, A Tauseef", journal: "Cancers 18 (4), 558", url: "https://doi.org/10.3390/cancers18040558" },
       { year: 2026, title: "Deciphering the Genomic Landscape of Oropharyngeal Squamous Cell Carcinoma: Distinct Mutation Patterns in Disease", authors: "B Hsia, G Bitar, PS Bonilla, et al.", journal: "Life 16 (2), 282", url: "https://doi.org/10.3390/life16020282" },
